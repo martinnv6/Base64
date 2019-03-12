@@ -15,6 +15,7 @@ namespace gfoidl.Base64
             s_resources = new Lazy<ResourceManager>(() => new ResourceManager($"{ns}.Strings", typeof(ThrowHelper).Assembly));
         }
         //---------------------------------------------------------------------
+        public static void ThrowArgumentNullException(ExceptionArgument argument)       => throw GetArgumentNullException(argument);
         public static void ThrowArgumentOutOfRangeException(ExceptionArgument argument) => throw GetArgumentOutOfRangeException(argument);
         public static void ThrowMalformedInputException(int urlEncodedLen)              => throw GetMalformdedInputException(urlEncodedLen);
         public static void ThrowForOperationNotDone(OperationStatus status)             => throw GetExceptionForOperationNotDone(status);
@@ -22,6 +23,11 @@ namespace gfoidl.Base64
         public static void ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionRessource ressource)
         {
             throw GetArgumentOutOfRangeException(argument, ressource);
+        }
+        //---------------------------------------------------------------------
+        private static Exception GetArgumentNullException(ExceptionArgument argument)
+        {
+            return new ArgumentNullException(GetArgumentName(argument));
         }
         //---------------------------------------------------------------------
         private static Exception GetArgumentOutOfRangeException(ExceptionArgument argument)
@@ -73,7 +79,8 @@ namespace gfoidl.Base64
     internal enum ExceptionArgument
     {
         length,
-        encodedLength
+        encodedLength,
+        writer
     }
     //---------------------------------------------------------------------
     internal enum ExceptionRessource

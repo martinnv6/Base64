@@ -11,6 +11,7 @@
     <ItemGroup>
         <Compile Remove="Internal\*HelperTests\*.cs" />
         <Compile Remove="HWInfo.cs" />
+        <Compile Remove="Extensions\ReadOnlySequenceExtensionsTests\*.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -21,6 +22,7 @@
     <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
         <Compile Include="Internal\Vector*HelperTests\*.cs" />
         <Compile Include="HWInfo.cs" />
+        <Compile Include="Extensions\ReadOnlySequenceExtensionsTests\*.cs" />
 
         <Compile Include="Internal\AssertHelperTests\*.cs" Condition="'$(Configuration)' == 'Debug'" />
     </ItemGroup>
