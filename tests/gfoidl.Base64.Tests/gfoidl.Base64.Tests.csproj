@@ -8,6 +8,10 @@
         <ProjectReference Include="..\..\source\gfoidl.Base64\gfoidl.Base64.csproj" />
     </ItemGroup>
 
+    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+        <PackageReference Include="System.IO.Pipelines" Version="4.5.3" />
+    </ItemGroup>
+
     <ItemGroup>
         <Compile Remove="Internal\*HelperTests\*.cs" />
         <Compile Remove="HWInfo.cs" />
