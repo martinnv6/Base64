@@ -47,6 +47,7 @@ For .NET Core 2.1+ encoding / decoding is done with SIMD-support.
         <Compile Remove="**\*.netcoreapp2.1.cs" />
         <Compile Remove="**\*.netcoreapp.cs" />
         <Compile Remove="**\*.netstandard2.0.cs" />
+        <Compile Remove="Extensions\ReadOnlySequenceExtensions.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -61,6 +62,7 @@ For .NET Core 2.1+ encoding / decoding is done with SIMD-support.
         <Compile Include="Internal\*Helper.cs" />
         <Compile Include="**\*.netcoreapp3.0.cs" />
         <Compile Include="**\*.netcoreapp.cs" />
+        <Compile Include="Extensions\ReadOnlySequenceExtensions.cs" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
